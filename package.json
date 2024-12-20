@@ -1,7 +1,7 @@
 {
   "name": "game-hub",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,7 +13,6 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "axios": "^1.7.9",
-    "dotenv": "^16.4.7",
     "framer-motion": "^11.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
