@@ -7,9 +7,11 @@ interface Props {
 const GameCard = ({ game }: Props) => {
   return (
     <Card borderRadius={10} overflow="hidden">
-      <Image src={game.background_image} objectFit="cover" />
+      <Image src={game.background_image} objectFit="cover" height={350} />
       <CardBody>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl" color={"gray.100"}>
+          {game.name}
+        </Heading>
         <HStack marginY={2}>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
