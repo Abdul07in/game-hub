@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { genresData } from '../sample-request/genres';
 import apiClient from '../services/api-client';
 import { CanceledError } from 'axios';
 
