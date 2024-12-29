@@ -13,7 +13,6 @@ const GameCardContainer = ({ children }: Props) => {
       border='1px'
       borderColor='gray.800'
       shadow='lg'
-      width='300px'
     >
       {children}
     </Box>

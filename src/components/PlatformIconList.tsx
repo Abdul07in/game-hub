@@ -5,13 +5,13 @@ import {
   FaLinux,
   FaAndroid,
   FaApple,
-} from "react-icons/fa";
-import { MdPhoneIphone } from "react-icons/md";
-import { SiNintendo } from "react-icons/si";
-import { BsGlobe } from "react-icons/bs";
-import { Platform } from "../hooks/useGames";
-import { Circle, HStack, Icon } from "@chakra-ui/react";
-import { IconType } from "react-icons";
+} from 'react-icons/fa';
+import { MdPhoneIphone } from 'react-icons/md';
+import { SiNintendo } from 'react-icons/si';
+import { BsGlobe } from 'react-icons/bs';
+import { Platform } from '../hooks/useGames';
+import { Circle, HStack, Icon, useColorModeValue } from '@chakra-ui/react';
+import { IconType } from 'react-icons';
 
 interface Props {
   platforms: Platform[];
@@ -34,12 +34,12 @@ const PlatformIconList = ({ platforms }: Props) => {
     <>
       <HStack marginY={2}>
         {platforms.map((platform) => (
-          <Circle size="25px" bg={"gray.200"}>
+          <Circle size='25px' bg={useColorModeValue('gray.700', 'gray.200')}>
             <Icon
               key={count++}
               as={iconMap[platform.slug]}
-              color={"gray.900"}
-              size="25px"
+              color={useColorModeValue('gray.200', 'gray.700')}
+              size='25px'
             />
           </Circle>
         ))}
