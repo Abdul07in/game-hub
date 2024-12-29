@@ -1,12 +1,11 @@
-import React from 'react';
 import useGenres from '../hooks/useGenres';
 import { ListItem, UnorderedList } from '@chakra-ui/react';
 
 const GenreList = () => {
-  const { genres } = useGenres();
+  const { data } = useGenres();
   return (
     <UnorderedList>
-      {genres.map((genre) => (
+      {data.map((genre) => (
         <ListItem key={genre.id}>{genre.name}</ListItem>
       ))}
     </UnorderedList>
