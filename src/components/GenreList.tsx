@@ -1,6 +1,7 @@
 import useGenres, { Genre } from '../hooks/useGenres';
 import {
   Button,
+  Heading,
   HStack,
   Image,
   List,
@@ -22,40 +23,50 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
   if (error) return null;
 
   return (
-    <List>
-      {isLoading
-        ? Array.from({ length: 15 }).map((_, index) => (
-            <ListItem key={index} paddingY='5px'>
-              <HStack spacing='4'>
-                <SkeletonCircle size='32px' />
-                <SkeletonText noOfLines={1} skeletonHeight='2' width='100px' />
-              </HStack>
-            </ListItem>
-          ))
-        : data.map((genre) => (
-            <ListItem key={genre.id} paddingY='5px'>
-              <HStack>
-                <Image
-                  boxSize='32px'
-                  borderRadius='8'
-                  src={getCroppedImageUrl(genre.image_background)}
-                  objectFit='cover'
-                  alt={genre.name}
-                />
-                <Button
-                  fontSize={{ base: 'md', md: 'md', lg: 'sm' }}
-                  variant='link'
-                  onClick={() => onSelectGenre(genre)}
-                  fontWeight={
-                    genre.id === selectedGenre?.id ? 'bold' : 'normal'
-                  }
-                >
-                  {genre.name}
-                </Button>
-              </HStack>
-            </ListItem>
-          ))}
-    </List>
+    <>
+      <Heading fontSize='2xl' marginBottom={4}>
+        Genre
+      </Heading>
+      <List>
+        {isLoading
+          ? Array.from({ length: 10 }).map((_, index) => (
+              <ListItem key={index} paddingY='5px'>
+                <HStack spacing='4'>
+                  <SkeletonCircle size='32px' />
+                  <SkeletonText
+                    noOfLines={1}
+                    skeletonHeight='2'
+                    width='100px'
+                  />
+                </HStack>
+              </ListItem>
+            ))
+          : data.map((genre) => (
+              <ListItem key={genre.id} paddingY='5px'>
+                <HStack>
+                  <Image
+                    boxSize='32px'
+                    borderRadius='8'
+                    src={getCroppedImageUrl(genre.image_background)}
+                    objectFit='cover'
+                    alt={genre.name}
+                  />
+                  <Button
+                    variant='link'
+                    whiteSpace='normal'
+                    textAlign='left'
+                    onClick={() => onSelectGenre(genre)}
+                    fontWeight={
+                      genre.id === selectedGenre?.id ? 'bold' : 'normal'
+                    }
+                  >
+                    {genre.name}
+                  </Button>
+                </HStack>
+              </ListItem>
+            ))}
+      </List>
+    </>
   );
 };
 
